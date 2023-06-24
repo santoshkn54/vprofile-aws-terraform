@@ -66,8 +66,14 @@ setting {
   setting {
     name      = "RollingUpdateEnabled"
     namespace = "aws:autoscaling:updatepolicy:rollingupdate"
+    value     = "true"
+  }
+  setting {
+    name      = "RollingUpdateType"
+    namespace = "aws:autoscaling:updatepolicy:rollingupdate"
     value     = "Health"
   }
+
   setting {
     name      = "MaxBatchSize"
     namespace = "aws:autoscaling:updatepolicy:rollingupdate"
