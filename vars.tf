@@ -33,6 +33,9 @@ variable dbuser {
 variable dbpass {
   default = "admin123"
 }
+variable dbname {
+  default = "accounts"
+}
 variable instance_count {
   default = "1"
 }

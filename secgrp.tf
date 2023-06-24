@@ -14,6 +14,10 @@ resource "aws_security_group" "vprofile-bean-elb-sg" {
     to_port = 80
     cidr_blocks = ["0.0.0.0/0"]
   }
+  depends_on = [
+  vpc
+  ]
+
 }
 resource "aws_security_group" "vprofile-bastion-sg" {
   name = "vprofile-bastion-sg"
@@ -31,6 +35,9 @@ resource "aws_security_group" "vprofile-bastion-sg" {
     to_port = 22
     cidr_blocks = [var.MYIP]
   }
+  depends_on = [
+    vpc
+  ]
 }
 resource "aws_security_group" "vprofile-prod-sg" {
   name = "vprofile-prod-sg"
@@ -49,6 +56,9 @@ resource "aws_security_group" "vprofile-prod-sg" {
     security_groups = [aws_security_group.vprofile-bastion-sg.id]
 
   }
+  depends_on = [
+    vpc
+  ]
 }
 resource "aws_security_group" "vprofile-backend-sg" {
   name = "vprofile-backend-sg"
@@ -67,6 +77,9 @@ resource "aws_security_group" "vprofile-backend-sg" {
     security_groups = [aws_security_group.vprofile-prod-sg.id]
 
   }
+  depends_on = [
+    vpc
+  ]
 }
 resource "aws_security_group_rule" "sec_group_allows_itselv" {
   type              = "ingress"
