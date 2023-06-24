@@ -1,7 +1,8 @@
-resource "aws_elastic_beanstalk_environment" "vprofile-bean-prod94" {
-  application = aws_elastic_beanstalk_application.vprofile-prod94.name
-  name        = "santoshkn54vprofile-prod"
+resource "aws_elastic_beanstalk_environment" "vprofile-bean-prod" {
+  application = aws_elastic_beanstalk_application.vprofile-prod.name
+  name        = "vprofile-bean-prod"
   solution_stack_name = "64bit Amazon Linux 2 v4.3.8 running Tomcat 8.5 Corretto 8"
+  cname_prefix = "example-prefix"
 
   setting {
     name      = "VPCId"
