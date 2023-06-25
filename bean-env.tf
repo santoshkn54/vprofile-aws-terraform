@@ -37,7 +37,7 @@ resource "aws_elastic_beanstalk_environment" "vprofile-bean-prod" {
   setting {
   name      = "EC2KeyName"
   namespace = "aws:autoscaling:launchconfiguration"
-  value     = aws_key_pair.vprofilekey.key_name
+  value     =  aws_key_pair.vprofilekey.key_name
 }
   setting {
     name      = "Availability Zones"
